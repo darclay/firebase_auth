@@ -11,13 +11,13 @@ export default function Login() {
   const [error, setError] = useState()
   const [loading, setLoading] = useState(false)
 
-  function handleSubmit(ev){
+  async function handleSubmit(ev){
     ev.preventDefault()
    
     try{
       setError("")
       setLoading(true)
-      login(emailRef.current.value, passwordRef.current.value)
+      await login(emailRef.current.value, passwordRef.current.value)
       navigate("/")
     }catch{
       setError("Failed to login")
@@ -45,6 +45,7 @@ export default function Login() {
 
             <Button disabled={loading} className="w-100" type="submit">Login</Button>
           </Form>
+          
           <div className="w-100 texxt-center mt-3">
             <Link to="/forgot-password">forgot password?</Link>
           </div>

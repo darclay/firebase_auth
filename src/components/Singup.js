@@ -12,7 +12,7 @@ export default function Singup() {
   const [error, setError] = useState()
   const [loading, setLoading] = useState(false)
 
-  function handleSubmit(ev){
+  async function handleSubmit(ev){
     ev.preventDefault()
     if(passwordRef.current.value !== passwordConfirmRef.current.value){
         return setError("Passwords don't match");
@@ -20,7 +20,7 @@ export default function Singup() {
     try{
       setError("")
       setLoading(true)
-      signup(emailRef.current.value, passwordRef.current.value)
+      await signup(emailRef.current.value, passwordRef.current.value)
       navigate("/")
     }catch(err){
       console.log(err);
