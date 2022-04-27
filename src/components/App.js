@@ -7,6 +7,7 @@ import PrivateRoute from './PrivateRoute'
 import {Container} from 'react-bootstrap'
 import { AuthProvider } from '../contexts/AuthContext'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import ForgotPassword from './ForgotPassword'
 
 export default function App() {
   return (
@@ -16,12 +17,25 @@ export default function App() {
         <Router>
           <AuthProvider>
           <Routes>
-            <Route path="/" element={PrivateRoute}>
-              <Route path="/" element={<Dashboard />}/>
-            </Route>
-            <Route path="/signup" element={<Signup />}/>
-            <Route path="/login" element={<Login />}/>
-            <Route path="/update-profile" element={<UpdateProfile />}/>
+            <Route path="/" 
+              element={<PrivateRoute><Dashboard/></PrivateRoute>}
+            />
+          
+            <Route path="/signup"
+              element={<Signup />}
+            />
+
+            <Route path="/login"
+              element={<Login />}
+            />
+            
+            <Route path="/update-profile"
+              element={<UpdateProfile />}
+            />
+
+            <Route path="/forgot-password"
+              element={<ForgotPassword />}
+            />
           </Routes>
           </AuthProvider>
         </Router>
