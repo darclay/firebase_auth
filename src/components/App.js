@@ -21,6 +21,10 @@ export default function App() {
               element={<PrivateRoute><Dashboard/></PrivateRoute>}
             />
           
+            <Route path="/update-profile" 
+              element={<PrivateRoute><UpdateProfile/></PrivateRoute>}
+            />
+
             <Route path="/signup"
               element={<Signup />}
             />
